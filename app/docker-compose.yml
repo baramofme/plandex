@@ -32,15 +32,15 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
-      - plandex-network
+      - dokploy-network
     depends_on:
       - plandex-postgres
     command: [ "/bin/sh", "-c", "/scripts/wait-for-it.sh plandex-postgres:5432 -- ./plandex-server" ]
 
-networks:
-  plandex-network:
-    driver: bridge
-
 volumes:
   plandex-db:
   plandex-files:
+
+networks:
+  dokploy-network:
+    external: true
