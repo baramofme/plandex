@@ -45,5 +45,6 @@ volumes:
   plandex-files:
 
 networks:
+  plandex-network:
   dokploy-network:
     external: true
