@@ -2,7 +2,7 @@ services:
   plandex-postgres:
     image: postgres:latest
     restart: always
-    container_name: plandex-postgres
+    container_name: plandex
     environment:
       POSTGRES_PASSWORD: plandex
       POSTGRES_USER: plandex
