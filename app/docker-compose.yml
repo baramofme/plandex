@@ -37,7 +37,7 @@ services:
       - dokploy-network
     depends_on:
       - plandex-postgres
-    command: [ "/bin/sh", "-c", "/scripts/wait-for-it.sh plandex-postgres:5432 -- ./plandex-server" ]
+    command: [ "/bin/sh", "-c", "/scripts/wait-for-it.sh localhost:5432 -- ./plandex-server" ]
 
 volumes:
   plandex-db:
