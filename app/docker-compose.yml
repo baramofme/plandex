@@ -2,6 +2,7 @@ services:
   plandex-postgres:
     image: postgres:latest
     restart: always
+    container_name: plandex-postgres
     environment:
       POSTGRES_PASSWORD: plandex
       POSTGRES_USER: plandex
@@ -12,8 +13,7 @@ services:
       - plandex-db:/var/lib/postgresql/data
     networks:
       - dokploy-network
-        aliases:
-          - plandex-postgres  # 이 이름을 네트워크 안에서 고유 ID로 사용
+
   plandex-server:
     image: plandexai/plandex-server:latest
     # build:
