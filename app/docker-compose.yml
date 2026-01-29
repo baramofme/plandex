@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: plandex
       POSTGRES_DB: plandex
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - plandex-db:/var/lib/postgresql/data
     networks:
@@ -25,7 +25,7 @@ services:
       - "8099:8099"
       - "4000:4000"
     environment:
-      DATABASE_URL: "postgres://plandex:plandex@plandex-postgres:5432/plandex?sslmode=disable"
+      DATABASE_URL: "postgres://plandex:plandex@plandex-postgres:5433/plandex?sslmode=disable"
       GOENV: development
       LOCAL_MODE: 1
       PLANDEX_BASE_DIR: /plandex-server
@@ -37,7 +37,7 @@ services:
       - dokploy-network
     depends_on:
       - plandex-postgres
-    command: [ "/bin/sh", "-c", "/scripts/wait-for-it.sh localhost:5432 -- ./plandex-server" ]
+    command: [ "/bin/sh", "-c", "/scripts/wait-for-it.sh plandex-postgres:5433 -- ./plandex-server" ]
 
 volumes:
   plandex-db:
