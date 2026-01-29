@@ -31,8 +31,8 @@ services:
       PLANDEX_BASE_DIR: /plandex-server
       OLLAMA_BASE_URL: http://host.docker.internal:8080
       
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
     networks:
       - dokploy-network
     depends_on:
