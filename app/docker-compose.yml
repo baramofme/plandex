@@ -1,6 +1,6 @@
 services:
   plandex-postgres:
-    image: postgres:latest
+    image: postgres:18
     restart: always
     container_name: plandex-postgres
     environment:
