@@ -7,10 +7,9 @@ services:
       POSTGRES_PASSWORD: plandex
       POSTGRES_USER: plandex
       POSTGRES_DB: plandex
-    # ports:
-    #   - "5444:5432"
     volumes:
       - plandex-db:/var/lib/postgresql/data
+    # prevent port  dokploy-postgres
     networks:
       - plandex-network
 
@@ -29,10 +28,8 @@ services:
       GOENV: development
       LOCAL_MODE: 1
       PLANDEX_BASE_DIR: /plandex-server
-      OLLAMA_BASE_URL: http://host.docker.internal:8080
+      OLLAMA_BASE_URL: http://llama-server:8080
       
-    # extra_hosts:
-    #   - "host.docker.internal:host-gateway"
     networks:
       - plandex-network
       - dokploy-network
